@@ -7,8 +7,7 @@
 %define girname         %mklibname %{name}-gir %{girmajor}
 
 # needed to prevent spurtious devel require
-%global _requires_exclude devel\\(libmozjs\-24.*\\)
-
+%define __noautoreq 'devel\\(libmozjs-24.*'
 Name:          cjs
 Epoch:         1
 Version:       2.6.0

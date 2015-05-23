@@ -12,7 +12,7 @@
 Name:          cjs
 Epoch:         1
 Version:       2.4.1
-Release:       %mkrel 1
+Release:       1
 Summary:       Javascript Bindings for Cinnamon
 
 Group:         Development/Other
@@ -103,41 +103,4 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 %{_includedir}/cjs-1.0/
 %{_libdir}/pkgconfig/cjs-*1.0.pc
 %{_libdir}/*.so
-
-
-%changelog
-* Thu Nov 27 2014 joequant <joequant> 1:2.4.1-1.mga5
-+ Revision: 799547
-- 2.4.1
-
-* Sun Nov 23 2014 joequant <joequant> 1:2.4.0-1.mga5
-+ Revision: 798408
-- upgrade to 2.4
-- upgrade to 2.4
-- upgrade to 2.2.2
-
-  + umeabot <umeabot>
-    - Second Mageia 5 Mass Rebuild
-    - Rebuild to fix library dependencies
-    - Mageia 5 Mass Rebuild
-
-* Fri Apr 18 2014 joequant <joequant> 1:2.2.0-2.mga5
-+ Revision: 616810
-- upgrade to 2.2
-
-* Mon Oct 21 2013 umeabot <umeabot> 1:2.0.0-2.mga4
-+ Revision: 539577
-- Mageia 4 Mass Rebuild
-
-* Mon Oct 07 2013 joequant <joequant> 1:2.0.0-1.mga4
-+ Revision: 492477
-- update to 2.0.0
-
-* Tue Oct 01 2013 joequant <joequant> 1:1.9.1-1.mga4
-+ Revision: 490041
-- update to 1.9.1
-
-* Fri Aug 23 2013 joequant <joequant> 1.34.0-0.1.gitfb472ad.mga4
-+ Revision: 470090
-- imported package cjs
 

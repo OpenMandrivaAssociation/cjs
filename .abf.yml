@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   cjs-2.4.1.tar.gz: 2c098a166bf6efdfab116f9edb33e0bce223ec21
+sources:
+  cjs-2.4.2.tar.gz: 2c3c214be4b56ab1d6faa8038b3d2c7a835a10e8

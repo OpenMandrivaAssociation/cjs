@@ -10,7 +10,7 @@
 %define __noautoreq 'devel\\(libmozjs-24.*'
 Name:          cjs
 Epoch:         1
-Version:       3.0.1
+Version:       3.2.0
 Release:       1
 Summary:       Javascript Bindings for Cinnamon
 

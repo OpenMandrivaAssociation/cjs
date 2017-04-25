@@ -11,7 +11,7 @@
 Name:          cjs
 Epoch:         1
 Version:       3.2.0
-Release:       1
+Release:       2
 Summary:       Javascript Bindings for Cinnamon
 
 Group:         Development/Other
@@ -46,6 +46,8 @@ framework.
 %package -n %{libname}
 Group:          System/Libraries
 Summary:        JavaScript bindings based on gobject-introspection
+Requires:	typelib(CjsPrivate)
+Requires:	typelib(GjsPrivate)
 
 %description -n %{libname}
 This package contains JavaScript bindings based on gobject-introspection.

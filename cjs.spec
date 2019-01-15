@@ -1,4 +1,3 @@
-%global _internal_version  7a72175
 %define api             1.0
 %define major           0
 %define girmajor        1.0
@@ -7,11 +6,11 @@
 %define girname         %mklibname %{name}-gir %{girmajor}
 
 # needed to prevent spurtious devel require
-%define __noautoreq 'devel\\(libmozjs-24.*'
+%define __noautoreq 'devel\\(libmozjs-52.*'
 Name:          cjs
 Epoch:         1
-Version:       3.2.0
-Release:       2
+Version:       4.0.0
+Release:       1
 Summary:       Javascript Bindings for Cinnamon
 
 Group:         Development/Other
@@ -28,7 +27,7 @@ URL:           http://cinnamon.linuxmint.com
 #Source0:       http://leigh123linux.fedorapeople.org/pub/cjs/source/cjs-%{version}.git%{_internal_version}.tar.gz
 Source0: http://leigh123linux.fedorapeople.org/pub/cjs/source/cjs-%{version}.tar.gz
 
-BuildRequires: pkgconfig(mozjs-24)
+BuildRequires: pkgconfig(mozjs-52)
 BuildRequires: pkgconfig(cairo-gobject)
 BuildRequires: pkgconfig(gobject-introspection-1.0) >= 1.31.22
 BuildRequires: readline-devel

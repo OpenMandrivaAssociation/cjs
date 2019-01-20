@@ -27,7 +27,7 @@ URL:           http://cinnamon.linuxmint.com
 #Source0:       http://leigh123linux.fedorapeople.org/pub/cjs/source/cjs-%{version}.git%{_internal_version}.tar.gz
 Source0: http://leigh123linux.fedorapeople.org/pub/cjs/source/cjs-%{version}.tar.gz
 Source1: ax_code_coverage.m4
-
+Patch1:	cjs-4.0.0-typelib.patch
 BuildRequires: pkgconfig(mozjs-52)
 BuildRequires: pkgconfig(cairo-gobject)
 BuildRequires: pkgconfig(gobject-introspection-1.0) >= 1.31.22
@@ -71,6 +71,7 @@ GObject Introspection interface description for %{name}.
 
 %prep
 %setup -q 
+%apply_patches
 cp %SOURCE1 m4
 sed -i -e 's@{ACLOCAL_FLAGS}@{ACLOCAL_FLAGS} -I m4@g' Makefile.am
 echo "AC_CONFIG_MACRO_DIR([m4])" >> configure.ac

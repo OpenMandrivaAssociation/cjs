@@ -1,0 +1,18 @@
+--- cjs-4.0.0/cjs/context.cpp.orig	2019-01-20 12:46:30.585359074 +0000
++++ cjs-4.0.0/cjs/context.cpp	2019-01-20 12:46:39.240359723 +0000
+@@ -283,7 +283,7 @@
+     g_object_class_install_property(object_class, PROP_PROFILER_SIGUSR2, pspec);
+     g_param_spec_unref(pspec);
+ 
+-    /* For GjsPrivate */
++    /* For CjsPrivate */
+     {
+ #ifdef G_OS_WIN32
+         extern HMODULE gjs_dll;
+@@ -1091,4 +1091,4 @@
+ gjs_get_js_version(void)
+ {
+     return JS_GetImplementationVersion();
+-}
+\ No newline at end of file
++}

@@ -24,7 +24,6 @@ URL:           http://cinnamon.linuxmint.com
 # wget https://github.com/linuxmint/cjs/archive/%%{version}.tar.gz -O cjs-%%{version}.tar.gz
 # for git
 # wget https://github.com/linuxmint/cjs/tarball/%%{_internal_version} -O cjs-%%{version}.git%%{_internal_version}.tar.gz
-#Source0:       http://leigh123linux.fedorapeople.org/pub/cjs/source/cjs-%{version}.git%{_internal_version}.tar.gz
 Source0: http://leigh123linux.fedorapeople.org/pub/cjs/source/cjs-%{version}.tar.gz
 Source1: ax_code_coverage.m4
 Patch1:	cjs-4.0.0-typelib.patch

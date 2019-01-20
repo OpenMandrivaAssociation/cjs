@@ -47,7 +47,6 @@ framework.
 Group:          System/Libraries
 Summary:        JavaScript bindings based on gobject-introspection
 Requires:	typelib(CjsPrivate)
-Requires:	typelib(GjsPrivate)
 
 %description -n %{libname}
 This package contains JavaScript bindings based on gobject-introspection.

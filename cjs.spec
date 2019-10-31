@@ -9,7 +9,7 @@
 %define __noautoreq 'devel\\(libmozjs-52.*'
 Name:          cjs
 Epoch:         1
-Version:       4.0.0
+Version:       4.2.0
 Release:       1
 Summary:       Javascript Bindings for Cinnamon
 
@@ -24,7 +24,7 @@ URL:           http://cinnamon.linuxmint.com
 # wget https://github.com/linuxmint/cjs/archive/%%{version}.tar.gz -O cjs-%%{version}.tar.gz
 # for git
 # wget https://github.com/linuxmint/cjs/tarball/%%{_internal_version} -O cjs-%%{version}.git%%{_internal_version}.tar.gz
-Source0: http://leigh123linux.fedorapeople.org/pub/cjs/source/cjs-%{version}.tar.gz
+Source0: https://github.com/linuxmint/cjs/archive/%{version}/%{name}-%{version}.tar.gz
 Source1: ax_code_coverage.m4
 Patch1:	cjs-4.0.0-typelib.patch
 BuildRequires: pkgconfig(mozjs-52)
@@ -80,7 +80,7 @@ rm -f configure
 (if ! test -x configure; then NOCONFIGURE=1 ./autogen.sh; fi;
  %configure2_5x --disable-static)
 sed -i -e 's! -shared ! -Wl,--as-needed\0!g' libtool
-%make V=1
+%make_build V=1
 
 %install
 %make_install

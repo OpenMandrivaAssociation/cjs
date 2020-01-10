@@ -70,7 +70,7 @@ GObject Introspection interface description for %{name}.
 
 %prep
 %setup -q 
-%apply_patches
+%autopatch -p1
 cp %SOURCE1 m4
 sed -i -e 's@{ACLOCAL_FLAGS}@{ACLOCAL_FLAGS} -I m4@g' Makefile.am
 echo "AC_CONFIG_MACRO_DIR([m4])" >> configure.ac

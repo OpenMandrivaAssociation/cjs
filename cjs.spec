@@ -26,7 +26,7 @@ URL:           http://cinnamon.linuxmint.com
 # wget https://github.com/linuxmint/cjs/tarball/%%{_internal_version} -O cjs-%%{version}.git%%{_internal_version}.tar.gz
 Source0: https://github.com/linuxmint/cjs/archive/%{version}/%{name}-%{version}.tar.gz
 Source1: ax_code_coverage.m4
-Patch1:	cjs-4.0.0-typelib.patch
+#Patch1:	cjs-4.0.0-typelib.patch
 BuildRequires: dbus-daemon
 BuildRequires: pkgconfig(mozjs-52)
 BuildRequires: pkgconfig(cairo-gobject)

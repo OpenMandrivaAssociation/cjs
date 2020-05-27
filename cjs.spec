@@ -7,9 +7,10 @@
 
 # needed to prevent spurtious devel require
 %define __noautoreq 'devel\\(libmozjs-52.*'
+
 Name:          cjs
 Epoch:         1
-Version:       4.4.0
+Version:       4.6.0
 Release:       1
 Summary:       Javascript Bindings for Cinnamon
 
@@ -20,13 +21,12 @@ Group:         Development/Other
 # Stack printer (gjs/stack.c)
 License:       MIT and (MPLv1.1 or GPLv2+ or LGPLv2+)
 URL:           http://cinnamon.linuxmint.com
-# To generate tarball
-# wget https://github.com/linuxmint/cjs/archive/%%{version}.tar.gz -O cjs-%%{version}.tar.gz
-# for git
-# wget https://github.com/linuxmint/cjs/tarball/%%{_internal_version} -O cjs-%%{version}.git%%{_internal_version}.tar.gz
+
 Source0: https://github.com/linuxmint/cjs/archive/%{version}/%{name}-%{version}.tar.gz
 Source1: ax_code_coverage.m4
-Patch1:	cjs-4.0.0-typelib.patch
+Patch1:	cjs-4.6.0-typelib.patch
+
+BuildRequires: dbus-daemon
 BuildRequires: pkgconfig(mozjs-52)
 BuildRequires: pkgconfig(cairo-gobject)
 BuildRequires: pkgconfig(gobject-introspection-1.0) >= 1.31.22
@@ -45,7 +45,7 @@ framework.
 %package -n %{libname}
 Group:          System/Libraries
 Summary:        JavaScript bindings based on gobject-introspection
-Requires:	typelib(CjsPrivate)
+#Requires:	typelib(CjsPrivate)
 
 %description -n %{libname}
 This package contains JavaScript bindings based on gobject-introspection.
@@ -104,4 +104,3 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 %{_includedir}/cjs-1.0/
 %{_libdir}/pkgconfig/cjs-*1.0.pc
 %{_libdir}/*.so
-

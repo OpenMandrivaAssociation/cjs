@@ -7,8 +7,6 @@
 
 # needed to prevent spurtious devel require
 %define __noautoreq 'devel\\(libmozjs-52.*'
-#define __requires_exclude ^typelib\(CjsPrivate\)
-#define __requires_exclude 'typelib\\(CjsPrivate\)'
 
 Name:          cjs
 Epoch:         1
@@ -23,14 +21,11 @@ Group:         Development/Other
 # Stack printer (gjs/stack.c)
 License:       MIT and (MPLv1.1 or GPLv2+ or LGPLv2+)
 URL:           http://cinnamon.linuxmint.com
-# To generate tarball
-# wget https://github.com/linuxmint/cjs/archive/%%{version}.tar.gz -O cjs-%%{version}.tar.gz
-# for git
-# wget https://github.com/linuxmint/cjs/tarball/%%{_internal_version} -O cjs-%%{version}.git%%{_internal_version}.tar.gz
+
 Source0: https://github.com/linuxmint/cjs/archive/%{version}/%{name}-%{version}.tar.gz
 Source1: ax_code_coverage.m4
-#Patch1:	cjs-4.0.0-typelib.patch
-Patch1:  ba.patch
+Patch1:	cjs-4.6.0-typelib.patch
+
 BuildRequires: dbus-daemon
 BuildRequires: pkgconfig(mozjs-52)
 BuildRequires: pkgconfig(cairo-gobject)
@@ -109,4 +104,3 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 %{_includedir}/cjs-1.0/
 %{_libdir}/pkgconfig/cjs-*1.0.pc
 %{_libdir}/*.so
-

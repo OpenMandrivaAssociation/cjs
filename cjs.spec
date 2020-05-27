@@ -8,7 +8,7 @@
 # needed to prevent spurtious devel require
 %define __noautoreq 'devel\\(libmozjs-52.*'
 #define __requires_exclude ^typelib\(CjsPrivate\)
-%define __requires_exclude 'typelib\\(CjsPrivate\)'
+#define __requires_exclude 'typelib\\(CjsPrivate\)'
 
 Name:          cjs
 Epoch:         1
@@ -50,7 +50,7 @@ framework.
 %package -n %{libname}
 Group:          System/Libraries
 Summary:        JavaScript bindings based on gobject-introspection
-Requires:	typelib(CjsPrivate)
+#Requires:	typelib(CjsPrivate)
 
 %description -n %{libname}
 This package contains JavaScript bindings based on gobject-introspection.

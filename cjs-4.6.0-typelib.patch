@@ -1,5 +1,6 @@
---- cjs-4.0.0/cjs/context.cpp.orig	2019-01-20 12:46:30.585359074 +0000
-+++ cjs-4.0.0/cjs/context.cpp	2019-01-20 12:46:39.240359723 +0000
+diff -uraN cjs-4.6.0/cjs/context.cpp omv-cjs-4.6.0/cjs/context.cpp
+--- cjs-4.6.0/cjs/context.cpp	2020-05-12 14:46:01.000000000 +0200
++++ omv-cjs-4.6.0/cjs/context.cpp	2020-05-26 19:52:44.542271578 +0200
 @@ -283,7 +283,7 @@
      g_object_class_install_property(object_class, PROP_PROFILER_SIGUSR2, pspec);
      g_param_spec_unref(pspec);

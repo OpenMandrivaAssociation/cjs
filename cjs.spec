@@ -7,7 +7,8 @@
 
 # needed to prevent spurtious devel require
 %define __noautoreq 'devel\\(libmozjs-52.*'
-%define __requires_exclude ^typelib\(CjsPrivate\)
+#%define __requires_exclude ^typelib\(CjsPrivate\)
+%define __requires_exclude 'typelib\\(CjsPrivate\)'
 
 Name:          cjs
 Epoch:         1

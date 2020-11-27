@@ -24,7 +24,7 @@ URL:           http://cinnamon.linuxmint.com
 
 Source0: https://github.com/linuxmint/cjs/archive/%{version}/%{name}-%{version}.tar.gz
 Source1: ax_code_coverage.m4
-Patch1:	cjs-4.6.0-typelib.patch
+#Patch1:	cjs-4.6.0-typelib.patch
 
 BuildRequires: dbus-daemon
 BuildRequires: pkgconfig(mozjs-52)

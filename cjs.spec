@@ -30,6 +30,7 @@ BuildRequires: dbus-daemon
 BuildRequires: pkgconfig(mozjs-78)
 BuildRequires: pkgconfig(cairo-gobject)
 BuildRequires: pkgconfig(gobject-introspection-1.0) >= 1.31.22
+BuildRequires: pkgconfig(sysprof-capture-4)
 BuildRequires: readline-devel
 BuildRequires: pkgconfig(dbus-glib-1)
 BuildRequires: intltool

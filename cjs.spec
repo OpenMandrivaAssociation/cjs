@@ -24,9 +24,10 @@ URL:           http://cinnamon.linuxmint.com
 
 Source0: https://github.com/linuxmint/cjs/archive/%{version}/%{name}-%{version}.tar.gz
 
+BuildRequires: cmake
 BuildRequires: meson
 BuildRequires: dbus-daemon
-BuildRequires: pkgconfig(mozjs-52)
+BuildRequires: pkgconfig(mozjs-78)
 BuildRequires: pkgconfig(cairo-gobject)
 BuildRequires: pkgconfig(gobject-introspection-1.0) >= 1.31.22
 BuildRequires: readline-devel

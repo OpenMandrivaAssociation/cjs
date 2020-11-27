@@ -23,7 +23,7 @@ License:       MIT and (MPLv1.1 or GPLv2+ or LGPLv2+)
 URL:           http://cinnamon.linuxmint.com
 
 Source0: https://github.com/linuxmint/cjs/archive/%{version}/%{name}-%{version}.tar.gz
-Source1: ax_code_coverage.m4
+#Source1: ax_code_coverage.m4
 #Patch1:	cjs-4.6.0-typelib.patch
 
 BuildRequires: dbus-daemon
@@ -71,10 +71,10 @@ GObject Introspection interface description for %{name}.
 %prep
 %setup -q 
 %autopatch -p1
-cp %SOURCE1 m4
-sed -i -e 's@{ACLOCAL_FLAGS}@{ACLOCAL_FLAGS} -I m4@g' Makefile.am
-echo "AC_CONFIG_MACRO_DIR([m4])" >> configure.ac
-rm -f configure
+#cp %SOURCE1 m4
+#sed -i -e 's@{ACLOCAL_FLAGS}@{ACLOCAL_FLAGS} -I m4@g' Makefile.am
+#echo "AC_CONFIG_MACRO_DIR([m4])" >> configure.ac
+#rm -f configure
 
 %build
 (if ! test -x configure; then NOCONFIGURE=1 ./autogen.sh; fi;

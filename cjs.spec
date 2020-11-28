@@ -25,7 +25,7 @@ URL:           http://cinnamon.linuxmint.com
 Source0: https://github.com/linuxmint/cjs/archive/%{version}/%{name}-%{version}.tar.gz
 
 # Details: https://github.com/linuxmint/cjs/issues/88
-#Patch0:  cjs-4.8.0-fix-compiling-with-clang11-mandriva.patch
+Patch0:  cjs-4.8.0-fix-compiling-with-clang11-mandriva.patch
 
 BuildRequires: cmake
 BuildRequires: meson
@@ -77,8 +77,6 @@ GObject Introspection interface description for %{name}.
 %autopatch -p1
 
 %build
-export CC=gcc
-export CXX=g++
 %meson -Dinstalled_tests=false
 %meson_build
 

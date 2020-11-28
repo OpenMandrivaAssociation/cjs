@@ -1,7 +1,7 @@
-diff -uraN cjs-4.8.0/cjs/jsapi-class.h omv-cjs-4.8.0/cjs/jsapi-class.h
---- cjs-4.8.0/cjs/jsapi-class.h	2020-11-25 13:19:13.000000000 +0100
-+++ omv-cjs-4.8.0/cjs/jsapi-class.h	2020-11-28 18:24:15.607723708 +0100
-@@ -77,11 +77,11 @@
+diff -up cjs-4.8.0/cjs/jsapi-class.h.omv~ cjs-4.8.0/cjs/jsapi-class.h
+--- cjs-4.8.0/cjs/jsapi-class.h.omv~	2020-11-28 20:34:53.636615643 +0100
++++ cjs-4.8.0/cjs/jsapi-class.h	2020-11-28 20:36:32.866273556 +0100
+@@ -77,11 +77,11 @@ bool gjs_define_property_dynamic(JSConte
   *                              do_base_typecheck and priv_from_js
   */
  #define GJS_DEFINE_PRIV_FROM_JS(type, klass)                                   \
@@ -15,3 +15,15 @@ diff -uraN cjs-4.8.0/cjs/jsapi-class.h omv-cjs-4.8.0/cjs/jsapi-class.h
          JSContext* cx, JS::HandleObject obj) {                                 \
          return static_cast<type*>(                                             \
              JS_GetInstancePrivate(cx, obj, &klass, nullptr));                  \
+diff -up cjs-4.8.0/cjs/jsapi-util-args.h.omv~ cjs-4.8.0/cjs/jsapi-util-args.h
+--- cjs-4.8.0/cjs/jsapi-util-args.h.omv~	2020-11-28 20:35:38.554895429 +0100
++++ cjs-4.8.0/cjs/jsapi-util-args.h	2020-11-28 20:35:47.581955362 +0100
+@@ -43,7 +43,7 @@
+ #include "cjs/jsapi-util.h"
+ #include "cjs/macros.h"
+ 
+-GJS_ALWAYS_INLINE [[nodiscard]] static inline bool check_nullable(
++[[nodiscard]] GJS_ALWAYS_INLINE static inline bool check_nullable(
+     const char*& fchar, const char*& fmt_string) {
+     if (*fchar != '?')
+         return false;

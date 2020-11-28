@@ -23,7 +23,7 @@ License:       MIT and (MPLv1.1 or GPLv2+ or LGPLv2+)
 URL:           http://cinnamon.linuxmint.com
 
 Source0: https://github.com/linuxmint/cjs/archive/%{version}/%{name}-%{version}.tar.gz
-Patch0:  cjs-4.6.0-typelib.patch  
+#Patch0:  cjs-4.6.0-typelib.patch  
 
 BuildRequires: cmake
 BuildRequires: meson

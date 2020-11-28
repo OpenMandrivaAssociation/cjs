@@ -6,7 +6,7 @@
 %define girname         %mklibname %{name}-gir %{girmajor}
 
 # needed to prevent spurtious devel require
-%define __noautoreq 'devel\\(libmozjs-52.*'
+%define __noautoreq 'devel\\(libmozjs-78.*'
 
 Name:          cjs
 Epoch:         1
@@ -23,13 +23,17 @@ License:       MIT and (MPLv1.1 or GPLv2+ or LGPLv2+)
 URL:           http://cinnamon.linuxmint.com
 
 Source0: https://github.com/linuxmint/cjs/archive/%{version}/%{name}-%{version}.tar.gz
-Source1: ax_code_coverage.m4
-#Patch1:	cjs-4.6.0-typelib.patch
 
+# Details: https://github.com/linuxmint/cjs/issues/88
+#Patch0:  cjs-4.8.0-fix-compiling-with-clang11-mandriva.patch
+
+BuildRequires: cmake
+BuildRequires: meson
 BuildRequires: dbus-daemon
-BuildRequires: pkgconfig(mozjs-52)
+BuildRequires: pkgconfig(mozjs-78)
 BuildRequires: pkgconfig(cairo-gobject)
 BuildRequires: pkgconfig(gobject-introspection-1.0) >= 1.31.22
+BuildRequires: pkgconfig(sysprof-capture-4)
 BuildRequires: readline-devel
 BuildRequires: pkgconfig(dbus-glib-1)
 BuildRequires: intltool
@@ -71,19 +75,15 @@ GObject Introspection interface description for %{name}.
 %prep
 %setup -q 
 %autopatch -p1
-cp %SOURCE1 m4
-sed -i -e 's@{ACLOCAL_FLAGS}@{ACLOCAL_FLAGS} -I m4@g' Makefile.am
-echo "AC_CONFIG_MACRO_DIR([m4])" >> configure.ac
-rm -f configure
 
 %build
-(if ! test -x configure; then NOCONFIGURE=1 ./autogen.sh; fi;
- %configure2_5x --disable-static)
-sed -i -e 's! -shared ! -Wl,--as-needed\0!g' libtool
-%make_build V=1
+export CC=gcc
+export CXX=g++
+%meson -Dinstalled_tests=false
+%meson_build
 
 %install
-%make_install
+%meson_install
 
 #Remove libtool archives.
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
@@ -92,6 +92,8 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 %doc COPYING COPYING.LGPL NEWS README
 %{_bindir}/cjs
 %{_bindir}/cjs-console
+%{_datadir}/%{name}-%{api}/lsan/lsan.supp
+%{_datadir}/%{name}-%{api}/valgrind/gjs.supp
 
 %files -n %{libname}
 %{_libdir}/*.so.*

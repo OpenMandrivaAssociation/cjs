@@ -77,7 +77,7 @@ GObject Introspection interface description for %{name}.
 %build
 export CC=gcc
 export CXX=g++
-%meson
+%meson -Dinstalled_tests=false
 %meson_build
 
 %install

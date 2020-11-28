@@ -6,7 +6,7 @@
 %define girname         %mklibname %{name}-gir %{girmajor}
 
 # needed to prevent spurtious devel require
-%define __noautoreq 'devel\\(libmozjs-52.*'
+%define __noautoreq 'devel\\(libmozjs-78.*'
 
 Name:          cjs
 Epoch:         1
@@ -23,7 +23,9 @@ License:       MIT and (MPLv1.1 or GPLv2+ or LGPLv2+)
 URL:           http://cinnamon.linuxmint.com
 
 Source0: https://github.com/linuxmint/cjs/archive/%{version}/%{name}-%{version}.tar.gz
-#Patch0:  cjs-4.6.0-typelib.patch  
+
+# Details: https://github.com/linuxmint/cjs/issues/88
+Patch0:  cjs-4.8.0-fix-compiling-with-clang11-mandriva.patch
 
 BuildRequires: cmake
 BuildRequires: meson
@@ -75,8 +77,6 @@ GObject Introspection interface description for %{name}.
 %autopatch -p1
 
 %build
-export CC=gcc
-export CXX=g++
 %meson -Dinstalled_tests=false
 %meson_build
 

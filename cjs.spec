@@ -90,6 +90,8 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 %doc COPYING COPYING.LGPL NEWS README
 %{_bindir}/cjs
 %{_bindir}/cjs-console
+%{_datadir}/%{name}-%{api}/lsan/lsan.supp
+%{_datadir}/%{name}-%{api}/valgrind/gjs.supp
 
 %files -n %{libname}
 %{_libdir}/*.so.*

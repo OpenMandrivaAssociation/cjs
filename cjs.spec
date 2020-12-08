@@ -10,7 +10,7 @@
 
 Name:          cjs
 Epoch:         1
-Version:       4.8.0
+Version:       4.8.1
 Release:       1
 Summary:       Javascript Bindings for Cinnamon
 
@@ -25,7 +25,7 @@ URL:           http://cinnamon.linuxmint.com
 Source0: https://github.com/linuxmint/cjs/archive/%{version}/%{name}-%{version}.tar.gz
 
 # Details: https://github.com/linuxmint/cjs/issues/88
-Patch0:  cjs-4.8.0-fix-compiling-with-clang11-mandriva.patch
+#Patch0:  cjs-4.8.0-fix-compiling-with-clang11-mandriva.patch
 
 BuildRequires: cmake
 BuildRequires: meson

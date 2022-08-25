@@ -37,6 +37,13 @@ BuildRequires: intltool
 # Bootstrap requirements
 BuildRequires: gtk-doc
 BuildRequires: gnome-common
+BuildRequires: pkgconfig(glib-2.0)
+BuildRequires: pkgconfig(gtk+-3.0)
+
+Requires: gobject-introspection
+Requires: gtk+3
+Requires: mozjs78
+Requires: glib2
 
 %description
 Cjs allows using Cinnamon libraries from Javascript. It's based on the

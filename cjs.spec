@@ -10,7 +10,7 @@
 
 Name:          cjs
 Epoch:         1
-Version:       5.2.0
+Version:       5.4.1
 Release:       1
 Summary:       Javascript Bindings for Cinnamon
 
@@ -37,6 +37,13 @@ BuildRequires: intltool
 # Bootstrap requirements
 BuildRequires: gtk-doc
 BuildRequires: gnome-common
+BuildRequires: pkgconfig(glib-2.0)
+BuildRequires: pkgconfig(gtk+-3.0)
+
+Requires: gobject-introspection
+Requires: gtk+3
+Requires: mozjs78
+Requires: glib2
 
 %description
 Cjs allows using Cinnamon libraries from Javascript. It's based on the
@@ -84,7 +91,7 @@ GObject Introspection interface description for %{name}.
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
 %files
-%doc COPYING COPYING.LGPL NEWS README
+%doc COPYING NEWS README.md
 %{_bindir}/cjs
 %{_bindir}/cjs-console
 %{_datadir}/%{name}-%{api}/lsan/lsan.supp

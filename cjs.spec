@@ -84,7 +84,7 @@ GObject Introspection interface description for %{name}.
 find %{buildroot} -name '*.la' -exec rm -f {} ';'
 
 %files
-%doc COPYING COPYING.LGPL NEWS README
+%doc COPYING NEWS README.md
 %{_bindir}/cjs
 %{_bindir}/cjs-console
 %{_datadir}/%{name}-%{api}/lsan/lsan.supp

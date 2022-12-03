@@ -10,7 +10,7 @@
 
 Name:          cjs
 Epoch:         1
-Version:       5.4.1
+Version:       5.6.1
 Release:       1
 Summary:       Javascript Bindings for Cinnamon
 

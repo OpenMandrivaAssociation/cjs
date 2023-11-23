@@ -42,7 +42,7 @@ BuildRequires: pkgconfig(gtk+-3.0)
 
 Requires: gobject-introspection
 Requires: gtk+3
-Requires: mozjs78
+Requires: mozjs102
 Requires: glib2
 
 %description

@@ -11,7 +11,7 @@
 Name:          cjs
 Epoch:         1
 Version:       6.0.0
-Release:       1
+Release:       2
 Summary:       Javascript Bindings for Cinnamon
 
 Group:         Development/Other
@@ -23,11 +23,12 @@ License:       MIT and (MPLv1.1 or GPLv2+ or LGPLv2+)
 URL:           http://cinnamon.linuxmint.com
 
 Source0: https://github.com/linuxmint/cjs/archive/%{version}/%{name}-%{version}.tar.gz
+Patch0:  https://src.fedoraproject.org/rpms/cjs/raw/rawhide/f/Port-to-mozjs115.patch
 
 BuildRequires: cmake
 BuildRequires: meson
 BuildRequires: dbus-daemon
-BuildRequires: pkgconfig(mozjs-102)
+BuildRequires: pkgconfig(mozjs-115)
 BuildRequires: pkgconfig(cairo-gobject)
 BuildRequires: pkgconfig(gobject-introspection-1.0) >= 1.31.22
 BuildRequires: pkgconfig(sysprof-capture-4)
@@ -42,7 +43,7 @@ BuildRequires: pkgconfig(gtk+-3.0)
 
 Requires: gobject-introspection
 Requires: gtk+3
-Requires: mozjs102
+Requires: mozjs115
 Requires: glib2
 
 %description

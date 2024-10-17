@@ -20,7 +20,7 @@ Group:         Development/Other
 # The console module (modules/console.c)
 # Stack printer (gjs/stack.c)
 License:       MIT and (MPLv1.1 or GPLv2+ or LGPLv2+)
-URL:           http://cinnamon.linuxmint.com
+URL:           https://cinnamon.linuxmint.com
 
 Source0: https://github.com/linuxmint/cjs/archive/%{version}/%{name}-%{version}.tar.gz
 

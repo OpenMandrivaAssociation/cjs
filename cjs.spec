@@ -6,12 +6,12 @@
 %define girname         %mklibname %{name}-gir %{girmajor}
 
 # needed to prevent spurtious devel require
-%define __noautoreq 'devel\\(libmozjs-78.*'
+%define __noautoreq 'devel\\(libmozjs-115.*'
 
 Name:          cjs
 Epoch:         1
 Version:       6.2.0
-Release:       2
+Release:       3
 Summary:       Javascript Bindings for Cinnamon
 
 Group:         Development/Other

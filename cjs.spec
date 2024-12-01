@@ -46,7 +46,6 @@ Requires: mozjs115
 Requires: glib2
 
 %patchlist
-cjs-6.2.0-g-ir-scanner-is-broken-crap.patch
 
 %description
 Cjs allows using Cinnamon libraries from Javascript. It's based on the

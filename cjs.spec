@@ -10,8 +10,8 @@
 
 Name:          cjs
 Epoch:         1
-Version:       6.2.0
-Release:       3
+Version:       6.4.0
+Release:       1
 Summary:       Javascript Bindings for Cinnamon
 
 Group:         Development/Other

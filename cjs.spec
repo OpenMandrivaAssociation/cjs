@@ -11,7 +11,7 @@
 Name:          cjs
 Epoch:         1
 Version:       6.4.0
-Release:       1
+Release:       2
 Summary:       Javascript Bindings for Cinnamon
 
 Group:         Development/Other
@@ -42,6 +42,7 @@ BuildRequires: pkgconfig(gtk+-3.0)
 
 Requires: gobject-introspection
 Requires: gtk+3
+Requiers: lib64mozjs115_115
 Requires: mozjs115
 Requires: glib2
 

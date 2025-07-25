@@ -83,14 +83,6 @@ Requires:       %{libname} = %{?epoch}:%{version}-%{release}
 %description -n %{girname}
 GObject Introspection interface description for %{name}.
 
-%package tests
-Summary: Tests for the cjs package
-Requires: %{name}
-	
-%description tests
-The cjs-tests package contains tests that can be used to verify
-the functionality of the installed cjs package.
-
 %prep
 %autosetup -p1
 
@@ -98,7 +90,7 @@ the functionality of the installed cjs package.
 %global optflags %{optflags} -fuse-ld=mold
 export CC=gcc
 export CXX=g++
-%meson
+%meson -Dinstalled_tests=false
 %meson_build
 
 %install
@@ -125,8 +117,3 @@ find %{buildroot} -name '*.la' -exec rm -f {} ';'
 %{_includedir}/cjs-1.0/
 %{_libdir}/pkgconfig/cjs-*1.0.pc
 %{_libdir}/*.so
-
-%files tests
-%{_libexecdir}/installed-tests/
-%{_datadir}/installed-tests/
-%{_datadir}/glib-2.0/schemas/org.cinnamon.CjsTest.gschema.xml

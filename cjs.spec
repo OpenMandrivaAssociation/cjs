@@ -100,7 +100,7 @@ export CXX=g++
 %install
 %meson_install
 
-rm -f /usr/libexec/installed-tests/
+rm -rf %{buildroot}/usr/libexec/installed-tests/
 
 #Remove libtool archives.
 find %{buildroot} -name '*.la' -exec rm -f {} ';'

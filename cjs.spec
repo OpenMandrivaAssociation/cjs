@@ -90,7 +90,11 @@ GObject Introspection interface description for %{name}.
 %global optflags %{optflags} -fuse-ld=mold
 export CC=gcc
 export CXX=g++
-%meson -Dinstalled_tests=false
+%meson \
+        -Dinstalled_tests=false \
+        -Dskip_dbus_tests=false \
+        -Dskip_gtk_tests=false
+
 %meson_build
 
 %install

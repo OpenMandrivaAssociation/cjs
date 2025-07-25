@@ -84,8 +84,7 @@ Requires:       %{libname} = %{?epoch}:%{version}-%{release}
 GObject Introspection interface description for %{name}.
 
 %prep
-%setup -q 
-%autopatch -p1
+%autosetup -p1
 
 %build
 %global optflags %{optflags} -fuse-ld=mold

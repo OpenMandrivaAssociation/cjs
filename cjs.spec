@@ -10,8 +10,8 @@
 
 Name:          cjs
 Epoch:         1
-Version:       6.4.0
-Release:       2
+Version:       128
+Release:       1
 Summary:       Javascript Bindings for Cinnamon
 
 Group:         Development/Other
@@ -26,8 +26,9 @@ Source0: https://github.com/linuxmint/cjs/archive/%{version}/%{name}-%{version}.
 
 BuildRequires: cmake
 BuildRequires: meson
+BuildRequires: mold
 BuildRequires: dbus-daemon
-BuildRequires: pkgconfig(mozjs-115)
+BuildRequires: pkgconfig(mozjs-128)
 BuildRequires: pkgconfig(cairo-gobject)
 BuildRequires: pkgconfig(gobject-introspection-1.0) >= 1.31.22
 BuildRequires: pkgconfig(sysprof-capture-4)
@@ -39,6 +40,9 @@ BuildRequires: gtk-doc
 BuildRequires: gnome-common
 BuildRequires: pkgconfig(glib-2.0)
 BuildRequires: pkgconfig(gtk+-3.0)
+
+# For tests:
+BuildRequires: gtk+3
 
 Requires: gobject-introspection
 Requires: gtk+3
@@ -84,9 +88,10 @@ GObject Introspection interface description for %{name}.
 %autopatch -p1
 
 %build
+%global optflags %{optflags} -fuse-ld=mold
 export CC=gcc
 export CXX=g++
-%meson -Dinstalled_tests=false
+%meson
 %meson_build
 
 %install

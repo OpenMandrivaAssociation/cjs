@@ -10,7 +10,7 @@
 
 Name:          cjs
 Epoch:         1
-Version:       128.0
+Version:       128.1
 Release:       1
 Summary:       Javascript Bindings for Cinnamon
 
@@ -24,8 +24,12 @@ URL:           https://cinnamon.linuxmint.com
 
 Source0: https://github.com/linuxmint/cjs/archive/%{version}/%{name}-%{version}.tar.gz
 
+BuildSystem:   meson
+BuildOption:    -Dinstalled_tests=false
+BuildOption:    -Dskip_dbus_tests=false
+BuildOption:    -Dskip_gtk_tests=false
+
 BuildRequires: cmake
-BuildRequires: meson
 BuildRequires: mold
 BuildRequires: dbus-daemon
 BuildRequires: pkgconfig(mozjs-128)
@@ -83,23 +87,14 @@ Requires:       %{libname} = %{?epoch}:%{version}-%{release}
 %description -n %{girname}
 GObject Introspection interface description for %{name}.
 
-%prep
-%autosetup -p1
 
-%build
-%global optflags %{optflags} -fuse-ld=mold
+%conf -p
+%global optflags %{optflags} -fuse-ld=mold 
 export CC=gcc
 export CXX=g++
-%meson \
-        -Dinstalled_tests=false \
-        -Dskip_dbus_tests=false \
-        -Dskip_gtk_tests=false
 
-%meson_build
 
-%install
-%meson_install
-
+%install -a
 rm -rf %{buildroot}/usr/libexec/installed-tests/
 
 #Remove libtool archives.

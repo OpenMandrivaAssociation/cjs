@@ -47,12 +47,14 @@ BuildRequires: pkgconfig(gtk+-3.0)
 
 # For tests:
 BuildRequires: gtk+3
+BuildRequires: lib64webkit2gtk-gir4.1
 
 Requires: gobject-introspection
 Requires: gtk+3
 Requires: lib64mozjs140_140
 Requires: mozjs140
 Requires: glib2
+
 
 %patchlist
 
@@ -68,6 +70,10 @@ Summary:        JavaScript bindings based on gobject-introspection
 
 %description -n %{libname}
 This package contains JavaScript bindings based on gobject-introspection.
+
+%prep
+%setup -q
+sed -i 's/webkit2gtk-4\.0/webkit2gtk-4.1/g' CMakeLists.txt
 
 %package -n %{develname}
 Summary: Development package for %{name}

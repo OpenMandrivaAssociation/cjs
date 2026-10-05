@@ -1,5 +1,3 @@
-%global __requires_exclude %{?__requires_exclude:%__requires_exclude|}^typelib\\(WebKit2
-
 %define api             1.0
 %define major           0
 %define girmajor        1.0
@@ -71,6 +69,10 @@ Summary:        JavaScript bindings based on gobject-introspection
 
 %description -n %{libname}
 This package contains JavaScript bindings based on gobject-introspection.
+
+%prep
+%setup -q
+sed -i "s/gi:\/\/WebKit2?version=4.0/gi:\/\/WebKit2?version=4.1/" examples/webkit.js   
 
 %package -n %{develname}
 Summary: Development package for %{name}

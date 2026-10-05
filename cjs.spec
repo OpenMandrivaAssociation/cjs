@@ -1,3 +1,5 @@
+%global webkit2_gir_version 4.1
+
 %define api             1.0
 %define major           0
 %define girmajor        1.0
@@ -47,6 +49,7 @@ BuildRequires: pkgconfig(gtk+-3.0)
 
 # For tests:
 BuildRequires: gtk+3
+BuildRequires: lib64webkit2gtk-gir4.1
 
 Requires: gobject-introspection
 Requires: gtk+3
@@ -72,7 +75,7 @@ This package contains JavaScript bindings based on gobject-introspection.
 
 %prep
 %setup -q
-sed -i "s/gi:\/\/WebKit2?version=4.0/gi:\/\/WebKit2?version=4.1/" examples/webkit.js   
+sed -i "s/gi:\/\/WebKit2?version=4.0/gi:\/\/WebKit2?version=%{webkit2_gir_version}/" examples/webkit.js
 
 %package -n %{develname}
 Summary: Development package for %{name}

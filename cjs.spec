@@ -1,3 +1,5 @@
+%global __requires_exclude %{?__requires_exclude:%__requires_exclude|}^typelib\\(WebKit2
+
 %define api             1.0
 %define major           0
 %define girmajor        1.0

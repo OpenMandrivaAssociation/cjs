@@ -1,3 +1,5 @@
+%global webkit2_gir_version 4.1
+
 %define api             1.0
 %define major           0
 %define girmajor        1.0
@@ -6,11 +8,11 @@
 %define girname         %mklibname %{name}-gir %{girmajor}
 
 # needed to prevent spurtious devel require
-%define __noautoreq 'devel\\(libmozjs-115.*'
+%define __noautoreq 'devel\\(libmozjs-140.*'
 
 Name:          cjs
 Epoch:         1
-Version:       140.0
+Version:       140.1
 Release:       1
 Summary:       Javascript Bindings for Cinnamon
 
@@ -32,7 +34,7 @@ BuildOption:    -Dskip_gtk_tests=false
 BuildRequires: cmake
 BuildRequires: mold
 BuildRequires: dbus-daemon
-BuildRequires: pkgconfig(mozjs-128)
+BuildRequires: pkgconfig(mozjs-140)
 BuildRequires: pkgconfig(cairo-gobject)
 BuildRequires: pkgconfig(gobject-introspection-1.0) >= 1.31.22
 BuildRequires: pkgconfig(sysprof-capture-4)
@@ -47,12 +49,14 @@ BuildRequires: pkgconfig(gtk+-3.0)
 
 # For tests:
 BuildRequires: gtk+3
+BuildRequires: lib64webkit2gtk-gir4.1
 
 Requires: gobject-introspection
 Requires: gtk+3
-Requires: lib64mozjs115_115
-Requires: mozjs115
+Requires: lib64mozjs140_140
+Requires: mozjs140
 Requires: glib2
+
 
 %patchlist
 
@@ -68,6 +72,10 @@ Summary:        JavaScript bindings based on gobject-introspection
 
 %description -n %{libname}
 This package contains JavaScript bindings based on gobject-introspection.
+
+%prep
+%setup -q
+sed -i "s/gi:\/\/WebKit2?version=4.0/gi:\/\/WebKit2?version=%{webkit2_gir_version}/" examples/webkit.js
 
 %package -n %{develname}
 Summary: Development package for %{name}

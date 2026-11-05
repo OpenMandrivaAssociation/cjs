@@ -12,7 +12,7 @@
 
 Name:          cjs
 Epoch:         1
-Version:       140.1
+Version:       140.2
 Release:       1
 Summary:       Javascript Bindings for Cinnamon
 
@@ -49,7 +49,7 @@ BuildRequires: pkgconfig(gtk+-3.0)
 
 # For tests:
 BuildRequires: gtk+3
-BuildRequires: lib64webkit2gtk-gir4.1
+BuildRequires: typelib(WebKit2)
 
 Requires: gobject-introspection
 Requires: gtk+3
